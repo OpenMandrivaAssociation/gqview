@@ -43,7 +43,6 @@ perl -pi -e 's|#define GQVIEW_HELPDIR .*|#define GQVIEW_HELPDIR "%_docdir/%{name
 %install
 rm -fr %{buildroot}
 %makeinstall GNOME_DATADIR=%{buildroot}/%{_datadir}
-install -m 0644 -D gqview.desktop %{buildroot}%{_datadir}/gnome/apps/Graphics/gqview.desktop
 install -m 0644 -D gqview.png %{buildroot}%{_datadir}/pixmaps/gqview.png
 
 # icons
@@ -52,8 +51,8 @@ install -m 0644 gqview.png %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.p
 convert -scale 32 gqview.png %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 convert -scale 16 gqview.png %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
-# removing uneeded stuff
-rm -rf %{buildroot}%{_datadir}/gqview/README %buildroot%{_datadir}/gnome/apps/
+# removing unneeded stuff
+rm -rf %{buildroot}%{_datadir}/gqview/README %{buildroot}%{_datadir}/gnome/apps/ %{buildroot}%{_datadir}/doc/%{name}-%{version}
 
 # menu
 desktop-file-install --vendor="" \
@@ -83,7 +82,7 @@ rm -fr %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc README COPYING TODO 
+%doc README COPYING TODO doc/*.html
 %{_bindir}/*
 %{_mandir}/man1/*
 %{_iconsdir}/hicolor/*/apps/%{name}.png
