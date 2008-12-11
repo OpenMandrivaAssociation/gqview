@@ -15,7 +15,7 @@ Source: 	http://prdownloads.sourceforge.net/gqview/%{name}-%{version}.tar.bz2
 Patch1:		gqview-2.1.1-remote.patch
 BuildRequires:	gtk+2-devel
 BuildRequires:	libpng-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 Requires:	jpeg-progs
 
