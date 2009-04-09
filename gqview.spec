@@ -1,5 +1,5 @@
 %define version 2.1.5
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary: 	Graphics file browser utility
 Name: 		gqview
@@ -13,6 +13,7 @@ Source: 	http://prdownloads.sourceforge.net/gqview/%{name}-%{version}.tar.bz2
 #gw http://qa.mandriva.com/show_bug.cgi?id=22966
 #Patch: http://glenux2.free.fr/pub/Contrib/GQView/gqview-multi-2005-11-01-223248.patch.bz2
 Patch1:		gqview-2.1.1-remote.patch
+Patch2:		gqview-2.1.5-fix-str-fmt.patch
 BuildRequires:	gtk+2-devel
 BuildRequires:	libpng-devel
 BuildRequires:	imagemagick
@@ -33,16 +34,18 @@ And external editor support.
 %prep
 %setup -q
 %patch1 -p1 -b .remote
+%patch2 -p0 -b .str
 perl -pi -e 's,%{name}.png,%{name},g' %{name}.desktop
 
 %build
 %configure2_5x
-perl -pi -e 's|#define GQVIEW_HELPDIR .*|#define GQVIEW_HELPDIR "%_docdir/%{name}-%{version}"|' config.h
+perl -pi -e 's|#define GQVIEW_HELPDIR .*|#define GQVIEW_HELPDIR "%_docdir/%{name}"|' config.h
 %make
 
 %install
 rm -fr %{buildroot}
-%makeinstall GNOME_DATADIR=%{buildroot}/%{_datadir}
+%makeinstall_std
+# GNOME_DATADIR=%{buildroot}/%{_datadir}
 install -m 0644 -D gqview.png %{buildroot}%{_datadir}/pixmaps/gqview.png
 
 # icons
@@ -92,4 +95,3 @@ rm -fr %{buildroot}
 %{_iconsdir}/hicolor/*/apps/%{name}.png
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*
-
