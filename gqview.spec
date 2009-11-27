@@ -1,15 +1,15 @@
 %define version 2.1.5
-%define release %mkrel 8
+%define release %mkrel 9
 
-Summary: 	Graphics file browser utility
-Name: 		gqview
-Version: 	%{version}
-Release: 	%{release}
-License: 	GPL+
-Group: 		Graphics
-URL: 		http://gqview.sourceforge.net/
+Summary:	Graphics file browser utility
+Name:		gqview
+Version:	%{version}
+Release:	%{release}
+License:	GPLv2+
+Group:		Graphics
+URL:		http://gqview.sourceforge.net/
 BuildRoot:	%_tmppath/%{name}-%version-%release-root
-Source: 	http://prdownloads.sourceforge.net/gqview/%{name}-%{version}.tar.bz2
+Source:		http://prdownloads.sourceforge.net/gqview/%{name}-%{version}.tar.bz2
 #gw http://qa.mandriva.com/show_bug.cgi?id=22966
 #Patch: http://glenux2.free.fr/pub/Contrib/GQView/gqview-multi-2005-11-01-223248.patch.bz2
 Patch1:		gqview-2.1.1-remote.patch
