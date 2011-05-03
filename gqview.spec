@@ -1,5 +1,5 @@
 %define version 2.1.5
-%define release %mkrel 10
+%define release %mkrel 11
 
 Summary:	Graphics file browser utility
 Name:		gqview
