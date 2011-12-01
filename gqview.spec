@@ -63,7 +63,7 @@ desktop-file-install --vendor="" \
   --add-category="GTK" \
   --add-category="2DGraphics" \
   --remove-key="Encoding" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 # locale name fix
 mv %{buildroot}%{_datadir}/locale/zh_CN{.GB2312,}
