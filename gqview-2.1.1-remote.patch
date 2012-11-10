@@ -1,0 +1,11 @@
+--- gqview-2.1.1/src/editors.c.remote	2005-06-13 16:55:17.000000000 -0400
++++ gqview-2.1.1/src/editors.c	2006-09-17 17:31:17.000000000 -0400
+@@ -47,7 +47,7 @@
+ 
+ 
+ static gchar *editor_slot_defaults[] = {
+-	N_("The Gimp"), "gimp-remote -n %f",
++	N_("The Gimp"), "gimp %f",
+ 	N_("XV"), "xv %f",
+ 	N_("Xpaint"), "xpaint %f",
+ 	NULL, NULL,

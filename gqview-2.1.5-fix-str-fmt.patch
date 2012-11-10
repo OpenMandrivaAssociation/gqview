@@ -1,0 +1,53 @@
+--- src/print.c.str	2009-04-09 09:13:20.000000000 +0200
++++ src/print.c	2009-04-09 09:13:42.000000000 +0200
+@@ -1220,7 +1220,7 @@
+ 		}
+ 	text[6] = '\0';
+ 
+-	fprintf(f, text);
++	fprintf(f, "%s", text);
+ }                                                                                                                         
+ static gint print_job_ps_page_image(PrintWindow *pw, GdkPixbuf *pixbuf,
+ 				    gdouble x, gdouble y, gdouble w, gdouble h,
+@@ -1345,7 +1345,7 @@
+ 		text[1] = hex_digits[*p & 0xf];
+ 		text[2] = '\0';
+ 
+-		fprintf(f, text);
++		fprintf(f, "%s", text);
+ 
+ 		p++;
+ 		}
+--- src/ui_fileops.c.str	2009-04-09 09:12:30.000000000 +0200
++++ src/ui_fileops.c	2009-04-09 09:12:43.000000000 +0200
+@@ -44,7 +44,7 @@
+ 	gchar *text_l;
+ 
+ 	text_l = g_locale_from_utf8(text_utf8, -1, NULL, NULL, NULL);
+-	printf((text_l) ? text_l : text_utf8);
++	printf("%s", (text_l) ? text_l : text_utf8);
+ 	g_free(text_l);
+ }
+ 
+--- src/view_file_icon.c.str	2009-04-09 09:14:21.000000000 +0200
++++ src/view_file_icon.c	2009-04-09 09:14:30.000000000 +0200
+@@ -614,7 +614,7 @@
+ 	uri_text = uri_text_from_list(list, &total, (info == TARGET_TEXT_PLAIN));
+ 	path_list_free(list);
+ 
+-	if (debug) printf(uri_text);
++	if (debug) printf("%s",uri_text);
+ 
+ 	gtk_selection_data_set(selection_data, selection_data->target,
+ 			       8, (guchar *)uri_text, total);
+--- src/view_file_list.c.str	2009-04-09 09:13:57.000000000 +0200
++++ src/view_file_list.c	2009-04-09 09:14:07.000000000 +0200
+@@ -136,7 +136,7 @@
+ 	uri_text = uri_text_from_list(list, &total, (info == TARGET_TEXT_PLAIN));
+ 	path_list_free(list);
+ 
+-	if (debug) printf(uri_text);
++	if (debug) printf("%s",uri_text);
+ 
+ 	gtk_selection_data_set(selection_data, selection_data->target,
+ 			       8, (guchar *)uri_text, total);
