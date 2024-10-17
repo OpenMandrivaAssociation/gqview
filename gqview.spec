@@ -7,7 +7,7 @@ Version:	%{version}
 Release:	%{release}
 License:	GPLv2+
 Group:		Graphics
-URL:		http://gqview.sourceforge.net/
+URL:		https://gqview.sourceforge.net/
 BuildRoot:	%_tmppath/%{name}-%version-%release-root
 Source:		http://prdownloads.sourceforge.net/gqview/%{name}-%{version}.tar.bz2
 #gw http://qa.mandriva.com/show_bug.cgi?id=22966
